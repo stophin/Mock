@@ -1,0 +1,18 @@
+新安装的mingw会提示
+fatal error: sys/mman.h: No such file or directory
+通过
+https://blog.csdn.net/evilbinary_root/article/details/10366991
+的做法，在
+http://sourceforge.net/projects/gtk-mingw/files/mman-win32/
+下载现成的mman.h
+放到
+mingw/include/sys下面就可以了
+
+mockcpp static_assert
+moclkcpp自己定义了一个static_assert，但是c++11已经引入了static_assert，两者冲突了
+一个解决方案是c++11以后就不要编这段代码了，使用
+#if __cplusplus < 201103L
+#endif
+经这个struct定义包含住
+
+安装MinGW后没有make，可以将MinGW/bin/mingw32-make.exe复制一份并命名为make.exe
